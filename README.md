@@ -101,7 +101,7 @@ Why? Because I often completely break this repo while updating. Which means that
 #### Ubuntu
 
 ```sh
-export DOTFILES_GH_USER=cowboy
+export DOTFILES_GH_USER=smerchek
 export DOTFILES_GH_BRANCH=master
 bash -c "$(wget -qO- https://raw.github.com/$DOTFILES_GH_USER/dotfiles/$DOTFILES_GH_BRANCH/bin/dotfiles)" && source ~/.bashrc
 ```
@@ -109,7 +109,7 @@ bash -c "$(wget -qO- https://raw.github.com/$DOTFILES_GH_USER/dotfiles/$DOTFILES
 #### macOS
 
 ```sh
-export DOTFILES_GH_USER=cowboy
+export DOTFILES_GH_USER=smerchek
 export DOTFILES_GH_BRANCH=master
 bash -c "$(curl -fsSL https://raw.github.com/$DOTFILES_GH_USER/dotfiles/$DOTFILES_GH_BRANCH/bin/dotfiles)" && source ~/.bashrc
 ```
@@ -117,20 +117,6 @@ bash -c "$(curl -fsSL https://raw.github.com/$DOTFILES_GH_USER/dotfiles/$DOTFILE
 Since you'll be using the [dotfiles][dotfiles] command on subsequent runs, you'll only have to set the `DOTFILES_GH_USER` variable for the initial install, but if you have a custom branch, you _will_ need to export `DOTFILES_GH_BRANCH` for subsequent runs.
 
 There's a lot of stuff that requires admin access via `sudo`, so be warned that you might need to enter your password here or there.
-
-### Actual installation (for me)
-
-#### Ubuntu
-
-```sh
-bash -c "$(wget -qO- https://bit.ly/cowboy-dotfiles)" && source ~/.bashrc
-```
-
-#### macOS
-
-```sh
-bash -c "$(curl -fsSL https://bit.ly/cowboy-dotfiles)" && source ~/.bashrc
-```
 
 ## Aliases and Functions
 To keep things easy, the `~/.bashrc` and `~/.bash_profile` files are extremely simple, and should never need to be modified. Instead, add your aliases, functions, settings, etc into one of the files in the `source` subdirectory, or add a new file. They're all automatically sourced when a new shell is opened. Take a look, I have [a lot of aliases and functions](source). I even have a [fancy prompt](source/50_prompt.sh) that shows the current directory, time and current git/svn repo status.
