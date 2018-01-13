@@ -25,26 +25,18 @@ function add_ppa() {
 
 # Misc.
 apt_packages+=(
-  awscli
   build-essential
-  cmatrix
-  cowsay
   curl
   git-core
-  groff
-  hollywood
   htop
-  id3tool
   imagemagick
   jq
-  mercurial
   nmap
-  postgresql
   python-pip
   silversearcher-ag
-  sl
-  telnet
   tree
+  zsh
+  zsh-antigen
 )
 
 apt_packages+=(vim)
@@ -84,30 +76,24 @@ if is_ubuntu_desktop; then
   apt_source_texts+=("deb https://www.charlesproxy.com/packages/apt/ charles-proxy3 main")
   apt_packages+=(charles-proxy)
 
-  # https://github.com/aluxian/Messenger-for-Desktop#linux
-  apt_keys+=('--keyserver pool.sks-keyservers.net --recv 6DDA23616E3FE905FFDA152AE61DA9241537994D')
-  apt_source_files+=(aluxian)
-  apt_source_texts+=("deb https://dl.bintray.com/aluxian/deb/ beta main")
-  apt_packages+=(messengerfordesktop)
-
   # https://www.spotify.com/us/download/linux/
   apt_keys+=('--keyserver hkp://keyserver.ubuntu.com:80 --recv-keys BBEBDCB318AD50EC6865090613B00F1FD2C19886')
   apt_source_files+=(spotify)
   apt_source_texts+=("deb http://repository.spotify.com stable non-free")
   apt_packages+=(spotify-client)
 
-  # https://tecadmin.net/install-oracle-virtualbox-on-ubuntu/
-  apt_keys+=(https://www.virtualbox.org/download/oracle_vbox_2016.asc)
-  apt_source_files+=(virtualbox)
-  apt_source_texts+=("deb http://download.virtualbox.org/virtualbox/debian $release_name contrib")
-  apt_packages+=(virtualbox-5.1)
+  # # https://tecadmin.net/install-oracle-virtualbox-on-ubuntu/
+  # apt_keys+=(https://www.virtualbox.org/download/oracle_vbox_2016.asc)
+  # apt_source_files+=(virtualbox)
+  # apt_source_texts+=("deb http://download.virtualbox.org/virtualbox/debian $release_name contrib")
+  # apt_packages+=(virtualbox-5.1)
 
-  # https://www.skype.com/en/download-skype/skype-for-linux/
-  # https://community.skype.com/t5/Linux/Skype-for-Linux-Beta-signatures-couldn-t-be-verified-because-the/td-p/4645756
-  apt_keys+=(https://repo.skype.com/data/SKYPE-GPG-KEY)
-  apt_source_files+=(skype)
-  apt_source_texts+=("deb  https://repo.skype.com/deb stable main")
-  apt_packages+=(skypeforlinux)
+  # # https://www.skype.com/en/download-skype/skype-for-linux/
+  # # https://community.skype.com/t5/Linux/Skype-for-Linux-Beta-signatures-couldn-t-be-verified-because-the/td-p/4645756
+  # apt_keys+=(https://repo.skype.com/data/SKYPE-GPG-KEY)
+  # apt_source_files+=(skype)
+  # apt_source_texts+=("deb  https://repo.skype.com/deb stable main")
+  # apt_packages+=(skypeforlinux)
 
   # http://askubuntu.com/a/190674
   add_ppa ppa:webupd8team/java
@@ -160,9 +146,9 @@ if is_ubuntu_desktop; then
   add_ppa ppa:danielrichter2007/grub-customizer
   apt_packages+=(grub-customizer)
 
-  # https://support.gitkraken.com/how-to-install
-  deb_installed+=(/usr/bin/gitkraken)
-  deb_sources+=(https://release.gitkraken.com/linux/gitkraken-amd64.deb)
+  # # https://support.gitkraken.com/how-to-install
+  # deb_installed+=(/usr/bin/gitkraken)
+  # deb_sources+=(https://release.gitkraken.com/linux/gitkraken-amd64.deb)
 
   # https://www.dropbox.com/install-linux
   apt_packages+=(python-gtk2 python-gpgme)
@@ -186,16 +172,16 @@ if is_ubuntu_desktop; then
   deb_installed+=(/usr/bin/discord)
   deb_sources+=("https://discordapp.com/api/download?platform=linux&format=deb")
 
-  # http://askubuntu.com/questions/854480/how-to-install-the-steam-client/854481#854481
-  apt_packages+=(python-apt)
-  deb_installed+=(/usr/bin/steam)
-  deb_sources+=(deb_source_steam)
-  function deb_source_steam() {
-    local steam_root steam_file
-    steam_root=http://repo.steampowered.com/steam/pool/steam/s/steam/
-    steam_file="$(wget -q -O- "$steam_root?C=M;O=D" | sed -En '/steam-launcher/{s/.*href="([^"]+)".*/\1/;p;q;}')"
-    echo "$steam_root$steam_file"
-  }
+  # # http://askubuntu.com/questions/854480/how-to-install-the-steam-client/854481#854481
+  # apt_packages+=(python-apt)
+  # deb_installed+=(/usr/bin/steam)
+  # deb_sources+=(deb_source_steam)
+  # function deb_source_steam() {
+  #   local steam_root steam_file
+  #   steam_root=http://repo.steampowered.com/steam/pool/steam/s/steam/
+  #   steam_file="$(wget -q -O- "$steam_root?C=M;O=D" | sed -En '/steam-launcher/{s/.*href="([^"]+)".*/\1/;p;q;}')"
+  #   echo "$steam_root$steam_file"
+  # }
   # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=772598
   # apt_packages+=(steam)
   # function preinstall_steam() {
@@ -215,7 +201,7 @@ function other_stuff() {
   fi
   # Install misc bins from zip file.
   install_from_zip ngrok 'https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip'
-  install_from_zip terraform 'https://releases.hashicorp.com/terraform/0.9.2/terraform_0.9.2_linux_amd64.zip'
+  # install_from_zip terraform 'https://releases.hashicorp.com/terraform/0.9.2/terraform_0.9.2_linux_amd64.zip'
 }
 
 ####################
