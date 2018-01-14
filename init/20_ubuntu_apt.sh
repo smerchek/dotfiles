@@ -58,11 +58,11 @@ add_ppa ppa:ansible/ansible
 apt_packages+=(ansible)
 
 if is_ubuntu_desktop; then
-  # http://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04
-  # apt_keys+=(http://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key)
-  # apt_source_files+=(arc-theme)
-  # apt_source_texts+=("deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /")
-  # apt_packages+=(arc-theme)
+  #http://www.omgubuntu.co.uk/2016/06/install-latest-arc-gtk-theme-ubuntu-16-04
+  apt_keys+=(https://download.opensuse.org/repositories/home:Horst3180/xUbuntu_16.04/Release.key)
+  apt_source_files+=(arc-theme)
+  apt_source_texts+=("deb http://download.opensuse.org/repositories/home:/Horst3180/xUbuntu_16.04/ /")
+  apt_packages+=(arc-theme)
 
   # https://www.ubuntuupdates.org/ppa/google_chrome
   apt_keys+=(https://dl-ssl.google.com/linux/linux_signing_key.pub)
@@ -134,7 +134,6 @@ if is_ubuntu_desktop; then
     vlc
     xclip
     zenmap
-    arc-theme
   )
 
   # Manage online accounts via "gnome-control-center" in launcher
