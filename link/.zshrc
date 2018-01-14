@@ -1,6 +1,6 @@
 zstyle ':completion:*' use-cache on
 
-source "$(brew --prefix)/share/antigen/antigen.zsh"
+source /usr/share/zsh-antigen/antigen.zsh
 ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 DISABLE_LS_COLORS="true"

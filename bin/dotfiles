@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 [[ "$1" == "source" ]] || \
 
-echo 'Dotfiles - "Cowboy" Ben Alman - http://benalman.com/'
+echo 'Dotfiles - Scott Smerchek - http://scottsmerchek.com/'
 
 if [[ "$1" == "-h" || "$1" == "--help" ]]; then cat <<HELP
 
 Usage: $(basename "$0")
 
 See the README for documentation.
-https://github.com/cowboy/dotfiles
+https://github.com/smerchek/dotfiles
 
 Copyright (c) 2014 "Cowboy" Ben Alman
 Licensed under the MIT license.
@@ -75,16 +75,10 @@ function get_os() {
   done
 }
 
-# Remove an entry from $PATH
 # Based on http://stackoverflow.com/a/2108540/142339
-function path_remove() {
-  local arg path
-  path=":$PATH:"
-  for arg in "$@"; do path="${path//:$arg:/:}"; done
-  path="${path%:}"
-  path="${path#:}"
-  echo "$path"
-}
+path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
+path_prepend () { path_remove $1; export PATH="$1:$PATH"; }
+path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
 
 # Display a fancy multi-select menu.
 # Inspired by http://serverfault.com/a/298312
