@@ -82,6 +82,12 @@ if is_ubuntu_desktop; then
   apt_source_texts+=("deb http://repository.spotify.com stable non-free")
   apt_packages+=(spotify-client)
 
+  # https://code.visualstudio.com/docs/setup/linux
+  apt_keys+=(https://packages.microsoft.com/keys/microsoft.asc)
+  apt_source_files+=(vscode)
+  apt_source_texts+=("deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main")
+  apt_packages+=(code)
+
   # # https://tecadmin.net/install-oracle-virtualbox-on-ubuntu/
   # apt_keys+=(https://www.virtualbox.org/download/oracle_vbox_2016.asc)
   # apt_source_files+=(virtualbox)
@@ -135,7 +141,7 @@ if is_ubuntu_desktop; then
 
   # https://github.com/mitchellh/vagrant/issues/7411
   deb_installed+=(/usr/bin/vagrant)
-  deb_sources+=(https://releases.hashicorp.com/vagrant/1.9.2/vagrant_1.9.2_x86_64.deb)
+  deb_sources+=(https://releases.hashicorp.com/vagrant/2.0.1/vagrant_2.0.1_x86_64.deb)
   # https://github.com/vagrant-libvirt/vagrant-libvirt/issues/575
   # apt_packages+=(vagrant)
   # function postinstall_vagrant() {
@@ -145,6 +151,10 @@ if is_ubuntu_desktop; then
   # https://launchpad.net/grub-customizer
   add_ppa ppa:danielrichter2007/grub-customizer
   apt_packages+=(grub-customizer)
+
+  # https://github.com/xflux-gui/fluxgui
+  add_ppa ppa:nathan-renniewaldock/flux
+  apt_packages+=(fluxgui)
 
   # # https://support.gitkraken.com/how-to-install
   # deb_installed+=(/usr/bin/gitkraken)
