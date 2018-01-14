@@ -75,10 +75,12 @@ function get_os() {
   done
 }
 
+# Remove an entry from $PATH
 # Based on http://stackoverflow.com/a/2108540/142339
-path_append ()  { path_remove $1; export PATH="$PATH:$1"; }
-path_prepend () { path_remove $1; export PATH="$1:$PATH"; }
-path_remove ()  { export PATH=`echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'`; }
+
+path_append ()  { path_remove $1; echo "$PATH:$1"; }
+path_prepend () { path_remove $1; echo "$1:$PATH"; }
+path_remove ()  { echo -n $PATH | awk -v RS=: -v ORS=: '$0 != "'$1'"' | sed 's/:$//'; }
 
 # Display a fancy multi-select menu.
 # Inspired by http://serverfault.com/a/298312
