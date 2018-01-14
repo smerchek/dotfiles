@@ -136,6 +136,7 @@ if is_ubuntu_desktop; then
     vlc
     xclip
     zenmap
+    gnome-themes-standard
   )
 
   # Manage online accounts via "gnome-control-center" in launcher
