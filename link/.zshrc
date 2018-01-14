@@ -24,8 +24,8 @@ antigen bundles <<EOBUNDLES
   #Postgres helper utilities
   caarlos0/zsh-pg
 
-  #Syntax highlighting on the command line
-  zsh-users/zsh-syntax-highlighting
+  # Syntax highlighting on the command line
+  # zsh-users/zsh-syntax-highlighting
 
   # generate zsh completions using gencomp <command>
   RobSis/zsh-completion-generator
