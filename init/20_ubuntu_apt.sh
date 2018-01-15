@@ -120,6 +120,10 @@ if is_ubuntu_desktop; then
     silentcast
   )
 
+  # https://gnometerminator.blogspot.fr/p/introduction.html
+  add_ppa ppa:gnome-terminator
+  apt_packages+=(terminator)
+
   # Misc
   apt_packages+=(adb fastboot)
   apt_packages+=(
@@ -137,6 +141,7 @@ if is_ubuntu_desktop; then
     xclip
     zenmap
     gnome-themes-standard
+    caffeine
   )
 
   # Manage online accounts via "gnome-control-center" in launcher
